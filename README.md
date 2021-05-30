@@ -4,7 +4,7 @@
 
 I had been away from SXOS scene for more than a year, and recently just got back to power on my Switch to play some of the recent titles in 2021. I have prior experience in jailbreaking Nintendo 3DS, the new Nintendo 3DS, Sony Playstation PSP Slim, Sony Playstation Vita (phat), and Sony Playstation Vita (Slim). While the tools used differ for each console, they do share some similarities and I find it easier to understand and compare the process. 
 
-Having said that, I decided to wrote this as a log to my attempts, and something that I could read back in the future. I wrote down each rationale for the steps so that you can better understand the process yourself. You may follow it if you have the same setup as I did! 
+Having said that, I decided to wrote this as a log to my attempts, and something that I could read back in the future. I wrote down each rationale for the steps so that you can better understand the process yourself. You may follow it if you have the same setup as I did! I think it is important to emphasize that is not a guide to compete with other awesome guides out there that covers all possible scenarios/console variants do achieve the same migration outcome. Rather this is simply written from my perspective in my scene experience with other console/handhelds, and on my scenario.
 
 **NOTE: If you ever decide to follow my steps, please carefully read through all the steps, make sure all the release links are available, and understand what you are doing. And I do not hold responsible if you bricked your Switch console, which is very unlikely though.**
 
@@ -12,10 +12,20 @@ All the files I downloaded are the latest release that I could obtained as of Ma
 
 tldr: I successfully updated to Atmosphere from SXOS. Turned out that the error is not due to SXOS, but the XCI game file itself! But I'm glad I transitioned since SXOS is support is stagnant at firmware 11. **And I might update my sysNAND to latest firmware in the future to support online play for the first time.**
 
+
 # TODO:
 This is merely the first draft that I wrote, so I might keep on revising it if there are demands.
 - Put all the tools/payload into this repo so you could easily install and link with my steps. (if there is a request)
 - Include more screenshot
+
+# Common Traits for the Exploits
+For historical purposes only.
+
+Regardless on which exploit on which handhelds, the exploit process or outcome do share some similarities, in which they would:
+- Replace/redirect the function of an official app to Homebrew Menu launcher, where you will then launch homebrew
+- A title manager (package installer manager) to extract a game container into a destination (internal eMMC or external microSD card)
+- The initial container format usually dominated or made popular by the first company that release the exploit publicly. In 3DS, Gateway was the first commercial company that did the exploit before a9lhax, and their Gateway cards support game container in `.3ds` format. With that format, you can simply mount it, then it would replace the official cartridge on the menu. You don't have to extract and install those using title manager. Similarly, TeamXcecutioner with their SXOS lineup was the first commercial company that promote `xci` format with their SXOS, with mounting capabilities without having to extract/install.
+- The successor container (3ds: CIA / Switch: NSP) would require the use of a title manager (3ds: BigBlueMenu BBB / Switch: Tinfoil, Goldleaf, Awoo) to extract and install those titles. No mounting option is possible with this type of container. The pros is once installed, you can simply launch it directly from the home menu screen, without having to to to homebrew menu, select a game, go back to home menu, and select the first icon/cartridge. This is suitable for titles that you intend to play for long, and not simply testing it.
 
 
 # Prelude on Why I update to Atmosphere from SXOS
@@ -37,17 +47,27 @@ After updating to Atmosphere, the same problem persist!
 - `SX Gear`: Bootloader from SXOS developer Team Xecutor allowing us to boot into RCM mode directly to inject payload such as `Hekete` without having to use TegraRCM (jig to boot into recovery mode)
 
 **Homebrew App**
-- `Tinfoil`: Package manager
-- `Goldleaf`: Package manager
+- `Tinfoil, Goldleaf, Awoo`: Package manager to install game containers (NSP, NSZ, XCI). It is comparable this to BigBlueMenu (BBB) in 3DS scene
+- `Goldleaf`: Package manager.
 - `Awoo`: Package manager
 - `xxx`: Save Manager
 
 
 **File extensions**
 - `NRO`: Programs for Homebrew. These will appear on the Homebrew Menu without needing any further installation.
-- `NSP`: Container for games. Can hold the base, updates, and dlc
+- `NSP`: Container for games. Can hold the base, updates, and dlc. It has to be extracted and installe by title manager like Tinfoil. This is similar to the CIA format in 3DS, which you would then install using title manager like BigBlueMenu (BBB) 
 - `NSZ`: A compressed format for NSP. NSZ files are typically 400MB less than NSP. It require installation via Installation Package Manager such as `Tinfoil`, `Goldbrew`, or `allos`.
 - `XCI`: Container for games. May be distributed as `trimmed XCI` which strip off all the empty/unused blocks in the storage. For example, for a flash cartridge with 32GB storage, if the game is only using 8GB, then the `trimmed XCI` will remove the remaining unused 24GB, and the final file size would be 8GB. This container is least compatible and difficult to work with to inject any updates or dlc. Recommend to use NSP instead. `XCI` can only be mounted as-is in SXOS (not Atmosphere), without needing further installation from the Switch via Installer Manager. 
+
+## Comparing with 3DS Scene
+
+
+| Switch | 3DS |
+| -------- | -------- | 
+| XCI     | CIA     |
+| NSP    | 3DS|
+|Tinfoil,Goldleaf,Awoo|BigBlueMenu (BBB)
+|TeamXcecutioner|Gateway|
 
 # My setup
 - NS Switch `Mariko` (a codename for NS switch sold with RED packaging box, with the longer battery life released after 2019), with soldered hardware mods SXOS Core chip.
