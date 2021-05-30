@@ -6,11 +6,11 @@ I had been away from SXOS scene for more than a year, and recently just got back
 
 Having said that, I decided to wrote this as a log to my attempts, and something that I could read back in the future. I wrote down each rationale for the steps so that you can better understand the process yourself. You may follow it if you have the same setup as I did! 
 
-tldr: I successfully updated to Atmosphere!
-
 **NOTE: If you ever decide to follow my steps, please carefully read through all the steps, make sure all the release links are available, and understand what you are doing. And I do not hold responsible if you bricked your Switch console, which is very unlikely though.**
 
 All the files I downloaded are the latest release that I could obtained as of May 29, 2021.
+
+tldr: I successfully updated to Atmosphere from SXOS. Turned out that the error is not due to SXOS, but the XCI game file itself! But I'm glad I transitioned since SXOS is support is stagnant at firmware 11. **And I might update my sysNAND to latest firmware in the future to support online play for the first time.**
 
 # TODO:
 This is merely the first draft that I wrote, so I might keep on revising it if there are demands.
@@ -20,6 +20,8 @@ This is merely the first draft that I wrote, so I might keep on revising it if t
 
 # Prelude on Why I update to Atmosphere from SXOS
 - I first encountered the dreaded **Error 2002-4153** in the first few seconds when launching recent titles like New Pokemon Snap, Monster Hunter Rise, and Super Mario + Bowser's Fury. Many had pointed this error to a possible corrupted microSD card, so I format the microSD into FAT32 since some users reported that NS have a funky exFAT driver that sometimes caused corruption issues. With FAT32 I had to split my XCI into each files of 4GB using SAP tool. Even with it, I am still facing the same 20.xxx error when launching those recent titles.
+
+After updating to Atmosphere, the same problem persist!
 - I then suspect that it could be the Installer Manager that I used to install the NSP, which is Awoo-Installer at first. So I tried Tinfoil. Again the same error in the first few seconds on boot. To make sure my previous games that used to work in SXOS, I converted a couple of the XCI into NSP, and alas it works without freeze! So this could only means one thing...
 - Turned out that the error is caused by the XCI that I downloaded from HBG using TotalCommander (FileManager) via rclone mount. To be safe, it is better to use `rclone copy ...` instead of a mounted file manager. I am still puzzled as to why this happen, and I am sure my HDD did not powered off unexpectedly the last time. I confirm that it is indeed the files because the error only occured on all the games I downloaded in the same day. Checking the checksums and I found that they are DIFFERENT! So my suspecious is correct! 
 - **P/S: I was about to update the firmware on the emuNAND using Daydream as the last resort, glad I didn't do that and is able to pinpoint the issue!**
@@ -166,6 +168,9 @@ I also tried out NS-USBloader v5.0 (require Java runtime) (https://github.com/de
 
 # 5. Post Install
 ## 5.1 Transfer saves in emuNAND into sysNAND for legit game
+WIP
+
+## 5.2 Update sysNAND to latest firmware for online play
 WIP
 
 # 6. Issues
