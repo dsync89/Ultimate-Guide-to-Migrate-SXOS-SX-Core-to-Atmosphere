@@ -74,6 +74,8 @@ There are two ways to boot into Atmosphere, and I chose the first one. Some clai
 1. Directly from SXOS bootloader
 **SXOS bootloader -> fusee_primary.bin (payload.bin) -> profit!**
 
+> Note: This is the method used by Sthetix in his video on **MIGRATING FROM THE SX OS TO ATMOSPHERE** (https://www.sthetix.info/migrating-from-the-sx-os-to-atmosphere/)
+
 2. Chainload via Hekate.
 **SXOS bootloader -> hekete.bin (payload.bin) -> chainload (select fusee_primary.bin) from `/bootloader/payload`**
 
