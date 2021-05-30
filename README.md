@@ -48,8 +48,6 @@ After updating to Atmosphere, the same problem persist!
 
 **Homebrew App**
 - `Tinfoil, Goldleaf, Awoo`: Package manager to install game containers (NSP, NSZ, XCI). It is comparable this to BigBlueMenu (BBB) in 3DS scene
-- `Goldleaf`: Package manager.
-- `Awoo`: Package manager
 - `xxx`: Save Manager
 
 
