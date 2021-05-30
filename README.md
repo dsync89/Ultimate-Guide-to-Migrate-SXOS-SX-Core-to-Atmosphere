@@ -29,24 +29,25 @@ After updating to Atmosphere, the same problem persist!
 
 # Terminology
 **Core Components**
-`Hekete`: Bootloader to launch a payload. It allows root access and select which path to boot next, i.e. from your microSD card. Without this, the stock bootloader will always boot to SYSNAND (internal eMMC).
-`Payload`:
-`RCM`: Recovery mode to inject payload
-`Chainload`: Loading payload by booting into Hekete bootloader first, i.e. you select `Payload` from `Hekete` menu option, instead of modifying the `payload.bin` file from your root microSD card.
-`fusee primary`: Payload to boot into atmosphere. You can load this by modifying the SXOX `boot.ini` file or chainload from `Hekete`. 
+- `Hekete`: The primary Bootloader that user (us) can access to launch a payload upon Tegra SOC power up. It allows root access and select which path to boot next, i.e. from your microSD card. Without this, the stock bootloader will always boot to SYSNAND (internal eMMC). IMO, calling it primary might be debatable to some embedded systems engineer, in the sense that the true primary or first stage bootloader is always internal chip ROM bootloader of Tegra SOC.
+- `Payload`: A binary file to boot next from the first stage bootloader like `Hekete`. It could be another bootloader such as atmosphere `fusee primary`, or program like `Lockpick RCM` to dump your Switch console keys (full encryption/decryption).
+- `RCM`: Recovery mode to inject payload
+- `Chainload`: Loading payload by booting into Hekete bootloader first, i.e. you select `Payload` from `Hekete` menu option, instead of modifying the `payload.bin` file from your root microSD card.
+- `fusee primary`: Payload (bootloader) to boot into atmosphere. You can load this by modifying the SXOX `boot.ini` file or chainload from `Hekete`. 
+- `SX Gear`: Bootloader from SXOS developer Team Xecutor allowing us to boot into RCM mode directly to inject payload such as `Hekete` without having to use TegraRCM (jig to boot into recovery mode)
 
 **Homebrew App**
-`Tinfoil`: Package manager
-`Goldleaf`: Package manager
-`Awoo`: Package manager
-xxx: Save Manager
+- `Tinfoil`: Package manager
+- `Goldleaf`: Package manager
+- `Awoo`: Package manager
+- `xxx`: Save Manager
 
 
 **File extensions**
-`NRO`: Programs for Homebrew. These will appear on the Homebrew Menu without needing any further installation.
-`NSP`: Container for games. Can hold the base, updates, and dlc
-`NSZ`: A compressed format for NSP. NSZ files are typically 400MB less than NSP. It require installation via Installation Package Manager such as `Tinfoil`, `Goldbrew`, or `allos`.
-`XCI`: Container for games. May be distributed as `trimmed XCI` which strip off all the empty/unused blocks in the storage. For example, for a flash cartridge with 32GB storage, if the game is only using 8GB, then the `trimmed XCI` will remove the remaining unused 24GB, and the final file size would be 8GB. This container is least compatible and difficult to work with to inject any updates or dlc. Recommend to use NSP instead. `XCI` can only be mounted as-is in SXOS (not Atmosphere), without needing further installation from the Switch via Installer Manager. 
+- `NRO`: Programs for Homebrew. These will appear on the Homebrew Menu without needing any further installation.
+- `NSP`: Container for games. Can hold the base, updates, and dlc
+- `NSZ`: A compressed format for NSP. NSZ files are typically 400MB less than NSP. It require installation via Installation Package Manager such as `Tinfoil`, `Goldbrew`, or `allos`.
+- `XCI`: Container for games. May be distributed as `trimmed XCI` which strip off all the empty/unused blocks in the storage. For example, for a flash cartridge with 32GB storage, if the game is only using 8GB, then the `trimmed XCI` will remove the remaining unused 24GB, and the final file size would be 8GB. This container is least compatible and difficult to work with to inject any updates or dlc. Recommend to use NSP instead. `XCI` can only be mounted as-is in SXOS (not Atmosphere), without needing further installation from the Switch via Installer Manager. 
 
 # My setup
 - NS Switch `Mariko` (a codename for NS switch sold with RED packaging box, with the longer battery life released after 2019), with soldered hardware mods SXOS Core chip.
