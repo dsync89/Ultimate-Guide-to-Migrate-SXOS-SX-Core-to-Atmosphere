@@ -15,7 +15,7 @@ tldr: I successfully updated to Atmosphere from SXOS. Turned out that the error 
 
 # TODO:
 This is merely the first draft that I wrote, so I might keep on revising it if there are demands.
-- Put all the tools/payload into this repo so you could easily install and link with my steps. (if there is a request)
+- [DONE] Put all the tools/payload into this repo so you could easily install and link with my steps. (if there is a request)
 - Include more screenshot
 
 # Common Traits for the Exploits
