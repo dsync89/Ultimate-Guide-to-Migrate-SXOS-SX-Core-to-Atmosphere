@@ -337,3 +337,35 @@ fss0=atmosphere/fusee-secondary.bin
 icon=bootloader/res/icon_switch.bmp
 stock=1
 ```
+
+---
+
+Q. What is `fusee-primary` and `fusee-secondary` in `atmosphere`?
+They are essentially payload that contains the bootloader code to boot into Atmosphere CFW.
+
+You use `fusee-primary` whenever you want to automatically boot into Atmosphere. If you are on SXOS like me, you would get `SX Gear` and put both `boot.dat` and `boot.ini` in the root microSD. Then modify `boot.ini` payload to `fusee-primary.bin`, or simply rename `fusee-primary.bin` to `payload.bin`.
+
+You use `fusee-secondary` **ONLY** in the first stage bootloader such as Hekate to boot into Atmosphere CFW. For example, if you are on SXOS like me, you would get `SX Gear` and put both `boot.dat` and `boot.ini` in the root microSD. Then modify `boot.ini` payload to `hekate_ctcaer_x.x.x.bin`, or simply rename `hekate_ctcaer_x.x.x.bin` to `payload.bin`. This will make sure your Switch boot into Hekate bootloader upon power up. You would then have boot entry or `/bootloader/hekate_ipl.ini` that have the `fusee-secondary.bin` as the fss0 path so that you could boot into Atmosphere from Hekate. For example:
+```
+[config]
+autoboot=0
+autoboot_list=0
+bootwait=3
+backlight=100
+autohosoff=0
+autonogc=1
+updater2p=0
+bootprotect=0
+
+[CFW Atmosphere (emuMMC)]
+emummcforce=1
+fss0=atmosphere/fusee-secondary.bin
+icon=bootloader/res/icon_payload.bmp
+
+[OFW Stock (sysMMC)]
+emummc_force_disable=1
+fss0=atmosphere/fusee-secondary.bin
+icon=bootloader/res/icon_switch.bmp
+stock=1
+```
+
