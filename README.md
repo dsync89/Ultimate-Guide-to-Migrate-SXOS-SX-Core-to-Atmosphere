@@ -89,7 +89,7 @@ By the end of going through **Section 1 to 3** this you would have
 
 ---
 
-**!!! BEFORE YOU CONTINUE WITH MY STEPS, MAKE SURE TO CLONE MY ENTIRE GITHUB REPO https://github.com/dsync89/Ultimate-Guide-to-Migrate-SXOS-SX-Core-to-Atmosphere/edit/main/README.md, THEN RUN THE CHECKSUM.SFV TO MAKE SURE ALL THE FILES ARE CORRECT AND NOT CORRUPTED !!!**
+**!!! BEFORE YOU CONTINUE WITH MY STEPS, MAKE SURE TO CLONE MY ENTIRE GITHUB REPO https://github.com/dsync89/Ultimate-Guide-to-Migrate-SXOS-SX-Core-to-Atmosphere, THEN RUN THE CHECKSUM.SFV TO MAKE SURE ALL THE FILES ARE CORRECT AND NOT CORRUPTED !!!**
 
 ---
 
