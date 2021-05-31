@@ -39,16 +39,18 @@ After updating to Atmosphere, the same problem persist!
 
 # Terminology
 **Core Components**
-- `Hekete`: The primary Bootloader that user (us) can access to launch a payload upon Tegra SOC power up. It allows root access and select which path to boot next, i.e. from your microSD card. Without this, the stock bootloader will always boot to SYSNAND (internal eMMC). IMO, calling it primary might be debatable to some embedded systems engineer, in the sense that the true primary or first stage bootloader is always internal chip ROM bootloader of Tegra SOC.
+- `Hekete`: The primary Bootloader that user (us) can access to launch a payload (next booting point) upon Tegra SOC power up. It allows root access and allow you to choose which environment to boot next, e.g. stock OFW from your sysMMC, CFW Atmosphere on your sysMMC or CFW Atmosphere on your emuMMC. The boot entries are defined in `hekate_ipl.ini` file (see the next one). Without this, the stock bootloader will always boot to SYSNAND (internal eMMC). IMO, calling it primary might be debatable to some embedded systems engineer, in the sense that the true primary or first stage bootloader is always internal chip ROM bootloader of Tegra SOC. 
+- `hekate_ipl.ini`: Contains the boot entry to boot into different environment from Hekate (after initial payload injection via RCM or SXOS SX Gear). Boot entry are such as stock (OFW) on sysMMC (or sysNAND in 3DS scene), CFW (Atmosphere) on emuMMC (or emuNAND), CFW (Atmosphere) on sysMMC. As with all other .ini file, each boot option is in the `[option]` block, where you can define the boot flag, payload, icon for each booting option. All the possible settings can be found at the **Bootloader configuration** section in https://github.com/CTCaer/hekate. In Linux world, if you have dual boot Linux and Windows, you will know GRUB.
 - `Payload`: A binary file to boot next from the first stage bootloader like `Hekete`. It could be another bootloader such as atmosphere `fusee primary`, or program like `Lockpick RCM` to dump your Switch console keys (full encryption/decryption).
 - `RCM`: Recovery mode to inject payload
 - `Chainload`: Loading payload by booting into Hekete bootloader first, i.e. you select `Payload` from `Hekete` menu option, instead of modifying the `payload.bin` file from your root microSD card.
 - `fusee primary`: Payload (bootloader) to boot into atmosphere. You can load this by modifying the SXOX `boot.ini` file or chainload from `Hekete`. 
 - `SX Gear`: Bootloader from SXOS developer Team Xecutor allowing us to boot into RCM mode directly to inject payload such as `Hekete` without having to use TegraRCM (jig to boot into recovery mode)
 
+
 **Homebrew App**
 - `Tinfoil, Goldleaf, Awoo`: Package manager to install game containers (NSP, NSZ, XCI). It is comparable this to BigBlueMenu (BBB) in 3DS scene
-- `xxx`: Save Manager
+- `Edizon`, `jksv`, `Checkpoint`: Save Manager (for import/export/migration)
 
 
 **File extensions**
@@ -59,13 +61,14 @@ After updating to Atmosphere, the same problem persist!
 
 ## Comparing with 3DS Scene
 
-
-| Switch | 3DS |
-| -------- | -------- | 
-| XCI     | CIA     |
-| NSP    | 3DS|
-|Tinfoil,Goldleaf,Awoo|BigBlueMenu (BBB)
-|TeamXcecutioner|Gateway|
+Credits to `github/Electric1447` and `u/deleted` for the corrections.
+| Aspect | Switch | 3DS |
+| -------- | -------- | -------- | 
+Game Cartridge Dump | .XCI/.XCZ (trimmed)     | .3DS      |
+eShop Dump| .NSP/.NSZ (trimmed)    | .CIA
+Homebrew Apps | .NRO/.NSP |.3DSX/CIA
+Title Manager |FBI, BigBlueMenu (BBB), DevMenu | Tinfoil,Goldleaf,Awoo
+First Commercial Company|TeamXcecutioner|Gateway|
 
 # My setup
 - NS Switch `Mariko` (a codename for NS switch sold with RED packaging box, with the longer battery life released after 2019), with soldered hardware mods SXOS Core chip.
@@ -77,40 +80,97 @@ After updating to Atmosphere, the same problem persist!
 Note:
 - I don't have to force my NS Switch into recovery mode using TegraRCM nor connect any USB cable from my Switch to PC. This is only because I have the SXOS Core hardware mod soldered. You might have to do it if yours are not, e.g. you are using dongle from SXOS Pro or jig to boot into SXOS.
 
+# What You Will Have At the End of This Guide
+By the end of going through **Section 1 to 3** this you would have
+- An emuMMC (emuNAND) as a FILE. Partition is another option but I find it easy to backup a file that you can list without using Partition tool or Linux `dd` command.
+- A choice to always boot into Hekate upon power on, then select the possible booting option (OFW Stock on sysMMC or CFW Atmosphere on emuMMC), or always boot into Atmosphere CFW upon power on.
+- A full dump of the `prod.keys` and `partialaes.keys` that you can use to convert between different game container, or use it in Yuzu Switch emulator!
+- A peace of mind that no sensitive information about your Switch will be sent to Nintendo Server should you ever connect to the Internet when in Atmosphere CFW. It will block any Internet connection to any of Nintendo servers via `exosphere`.
+
+---
+
+**!!! BEFORE YOU CONTINUE WITH MY STEPS, MAKE SURE TO CLONE MY ENTIRE GITHUB REPO https://github.com/dsync89/Ultimate-Guide-to-Migrate-SXOS-SX-Core-to-Atmosphere/edit/main/README.md, THEN RUN THE CHECKSUM.SFV TO MAKE SURE ALL THE FILES ARE CORRECT AND NOT CORRUPTED !!!**
+
+---
+
+# About My Package
+All the folder name are are linked to each of the section below, so 1-1 would means all the files you need to copy to your microSD root when doing **Step 1.1 Meet Hekate, your friendly Bootloader** and so on
+
 
 # 1. Setting Up for Atmosphere
-Watch the amazing video by Sthetix on **MIGRATING FROM THE SX OS TO ATMOSPHERE** (https://www.sthetix.info/migrating-from-the-sx-os-to-atmosphere/)
+Watch the amazing video by Sthetix on **MIGRATING FROM THE SX OS TO ATMOSPHERE** (https://www.sthetix.info/migrating-from-the-sx-os-to-atmosphere/) to get familiarize with the steps. Then follow my steps below starting from 1.1!
 
 My case is **Case#4 are for Patched Switch (Regular/Lite) with Emunand**. Simply jump to time **12:42** in that video and follow them EXACTLY till the end.
 
 > TODO: I might put a screenshots for the steps in the video for reference. But as of the date of the writing, all his tools and steps are valid.
 
+All the following steps and softwares are packaged, CRC checked, and adapted by me after watching Sthetix videos, and various articles from r/SwitchPirates and GBAtemp.
+
+## 1.1 Meet Hekate, your friendly Bootloader
+1. Remove microSD card from Switch console and insert to USB microSD Card reader to your PC
+2. Copy and replace all files in `1-1 Meet Hekate, your friendly Bootloader` folder to the root of your microSD card.
+3. Reinsert microSD card to your console
+4. Boot it up and you should see Hekate boot screen.
+
+## 1.2 Migrate your existing emuNAND (SXOS) to emuMMC (Optional)
+> Note: Only do this if you want to carry your emuNAND in SXOS to Atmosphere, without starting from scratch and recreating one. Skip this if you want to start fresh. I would like to resume mine so I continue.
+1. Skip the date/time if you want. It is only used to display the time in Nyx (the skin/theme you see in Hekate). It will not change your Switch system time.
+2. Select `emuMMC` icon
+3. Select `Migrate emuMMC` icon at the top right.
+4. Select `emuNAND` button
+5. Select `Continue` button
+6. Select `OK` button when it is done
+7. Select `Close` button at the top right
+8. Select `Power Off` button at the bottom right.
+
+## 1.3 Install Atmosphere to your microSD
+1. Insert microSD card to your PC.
+2. Copy and replace all files in `1-3 Install Atmosphere to your microSD` folder to the root of your microSD card.
+3. Choose either **2.1a** or **2.1b** in the next section depending on how you would like to boot into.
 
 # 2. Launching into Atmosphere
 
-There are two ways to boot into Atmosphere, and I chose the first one. Some claimed that booting via chainload (Hekate) is faster. From my experience, it take 30-60 seconds just to boot into Atmosphere and see the Homescreen using Method 1.
+There are two ways to boot into Atmosphere, and I chose the **second one**. Some claimed that booting via chainload (Hekate) is faster, and I verified it. From my experience, it take 30-60 seconds just to boot into Atmosphere before you can see the Homescreen using Method 2.1a. It took less than 10 seconds using Method 2.1b.
 
-1. Directly from SXOS bootloader
-**SXOS bootloader -> fusee_primary.bin (payload.bin) -> profit!**
+> Edit on May 31, 2021: I used to choose method 1, but the waiting time is too long, and I want the option to boot into Stock OFW easily without having to press `Volume -` button every time I want.
 
-> Note: This is the method used by Sthetix in his video on **MIGRATING FROM THE SX OS TO ATMOSPHERE** (https://www.sthetix.info/migrating-from-the-sx-os-to-atmosphere/)
-
-2. Chainload via Hekate.
-**SXOS bootloader -> hekete.bin (payload.bin) -> chainload (select fusee_primary.bin) from `/bootloader/payload`**
-
-You should see three logos in succession before seeing the homescreen.
+Regardless on which method you use, you will know you are booting into Atmosphere CFW if you see three logos in succession before seeing the homescreen.
 1. Indigo background with atmosphere logo
 2. atmosphere triangle shaped logo
 3. Official Nintendo Switch logo
 
+## 2.1a Auto boot into Atmosphere, bypass Hekate
+**Booting Flow: SXOS payload injection -> fusee_primary.bin (payload.bin) -> profit!**
 
-# 3. Prepping Games
-Since atmosphere only support NSP container, not XCI. I had to convert . In HBG, you'll find that not all titles are available in NSP format. A game is usually in one of the container, rather than both. So I have to convert all XCI into NSP.
+> Note: This is the method used by Sthetix in his video on **MIGRATING FROM THE SX OS TO ATMOSPHERE** (https://www.sthetix.info/migrating-from-the-sx-os-to-atmosphere/)
 
-## 3.1 Switch Army Knife (SAK)
-I used **Switch Army Knife (SAK)** (https://github.com/dezem/SAK) that has a very good GUI with all the function I need to convert between XCI to NSP or vice versa. It basically bundle all the command line tools for different conversion into a program. Without this, I had to use script like **NSZ** (https://github.com/nicoboss/nsz) to convert. 
+Choose this method if you always wanted to boot into Atmosphere upon power on. You can still boot into Hekate, but would need to hold the `Volume -` button for 3 seconds when power the Switch on.
 
-### 3.2 Dumping prod.keys
+1. Copy and replace all files in `2-1a Auto boot into Atmosphere, bypass Hekate` folder to the root of your microSD card.
+2. Insert microSD card back to Switch and power it on.
+3. Go to toilet and get a cup of coffee. You deserve it! It will take at least 30 seconds to boot into the Nintendo home screen. 
+
+
+## 2.1b Boot into Hekate first, then select boot mode AKA "Chain Load"
+**Booting Flow: SXOS bootloader -> hekete.bin (payload.bin) -> Your boot entry (common entries are OFW Stock sysMMC, CFW on sysMMC or CFW on emuMMC)**
+
+This is the most flexible method and you can always choose where to boot next, most common options are
+- OFW Stock on sysMMC
+- CFW on sysMMC
+- CFW on emuNAND
+
+I never intend to put CFW stuffs into my sysMMC since I would like to have a clean sysMMC to play my legit game online, with minimal chance for banning. So I only created two entries in the bootloader options.
+
+1. Copy and replace all files in `2-1b Boot into Hekate first, then select boot mode` folder to the root of your microSD card.
+2. Insert microSD card back to Switch and power it on.
+3. Select `Launch` icon at the top left, and choose either one to boot next, OFW (sysMMC) or CFW Atmosphere (emuMMC).
+
+# 3. Post Install
+Do the following to prevent possible ban by connecting your Switch to the Internet while in CFW. They will help you to hide all your Switch info or block Internet connection to any of Nintendo servers, if you ever accidentally connect to the Internet while in CFW.
+
+## 3.1 Blank prodinfo (prevent ban) using exosphere (if you use CFW on emuMMC)
+
+## 3.2 Dumping prod.keys (Full Encryption/Decryption Keys on Your Switch)
 Before you can start to convert between XCI<->NSP using SAK, you have to dump the **FULL** set of keys `prod.keys` from your actual Switch console, using Lockpick_RCM ONLY. Lockpick NRO can only dump full key if you firmware is below 7.0.0, which is very unlikely, and mine is 10.0.2. 
 
 I was using the `prod.keys` dumped from Lockpick NRO, and converting in SAK always shown `check your keys`. There is a YouTube video that claimed that the solution to this is to uncheck the **Read only** attribute of the file, but mine was already unchecked! So the culprit IS INDEED the invalid partial keys.
@@ -124,27 +184,54 @@ See the following for comparison. The left pane is the `prod.keys` dumped from L
 ![](https://i.imgur.com/rozXfBK.png)
 
 To start dumping the keys,
-1. Download `Lockpick_RCM.bin` (https://github.com/shchmue/Lockpick_RCM/releases/download/v1.9.2/Lockpick_RCM.bin) and put it to the root of your microSD card.
 
-2. Open `boot.ini` at the root of your microSD card to the following.
-```
-[payload]
-file=Lockpick_RCM.bin
-```
+1. Copy and replace all files in `3-2 Dumping prod.keys (Full Encryption Decryption Keys on Your Switch)` folder to the root of your microSD card.
+2. Insert microSD card back to Switch and power it on.
+3. Select `Payload` icon from the center menu, and choose `Lockpick_RCM`.
+4. Hold your switch vertically. For navigation, use volume + or - to go up and down, and Power button to enter.
+5. Press `Power` button to start dumping all keys from sysMMC
+6. Power Switch off
+7. Reinsert microSD card to your PC
+8. Copy and backup the full encryption/decryption keys found in `switch/partialaes.keys` and `switch/prod.keys`.
 
-You can also simply keep `boot.ini` content as is and rename `Lockpick_RCM.bin` to `payload.bin`. Both will work the same.
-
-3. Insert back the microSD to your switch and power it on.
-4. It should boot into Lockpick menu.
-5. Hold your switch vertically. For navigation, use volume + or - to go up and down, and Power button to enter.
-6. Select the first option, dump keys from sysNAND, then press Power button to execute.
-7. It should display all keys dumped.
-8. Power off, unplug the microSD and reinsert it to your PC.
-9. Copy the `switch/prod.keys` to your `SAK\bin` folder. You will also find `partialaes.keys` there, but it is not used in SAK. **I would highly suggest you to backup these two keys and put it to your sysNAND FULL BACKUP!**
-10. Launch SAK and start converting!
+> **NOTE: I would highly suggest you to backup these two keys and put it to your sysNAND FULL BACKUP!**
 
 
-# 4. Install Games
+
+
+Steps
+1. Copy and replace all files in `3-1 Blank prodinfo (prevent ban) using exosphere (if you use CFW on emuMMC)` folder to the root of your microSD card.
+2. Insert microSD card back to Switch and power it on.
+3. All the stuffs are done under the hood when you connect to the Internet on CFW.
+
+> Note: I never connect my Switch to Internet in both sysMMC or emuMMC, so this is just for extra peace of mind. I did this after reading a comment by `u/igromanru` on Reddit.
+
+
+## 3.3 Incognito Mode
+According to https://rentry.co/SettingUpIncognito this is not supported in "Mariko" switch, so I didn't do it.
+
+
+# 4. Prepping Games
+Since atmosphere cannot mount XCI directly like SXOS could, I had to convert the XCI from HBG (a paid membership access store with all the dumped games). In HBG, you'll find that not all titles are available in NSP format. A game is usually in one of the container, rather than both. So I have to convert all XCI into NSP.
+
+Edit: Some Title Installers like `awoo` and `Tinfoil` can already extract and install XCI files, so you can use them instead of having to convert to NSP. I did this because I didn't know at first, but it is a good thing to learn.
+
+## 4.1 Switch Army Knife (SAK)
+I used **Switch Army Knife (SAK)** (https://github.com/dezem/SAK) that has a very good GUI with all the function I need to convert between XCI to NSP or vice versa. It basically bundle all the command line tools for different conversion into a program. Without this, I had to use script like **NSZ** (https://github.com/nicoboss/nsz) to convert. 
+
+![](https://i.imgur.com/nmUWQ1P.png)
+
+
+Before you can start to convert from any of the container, you would need to put your Switch `prod.keys` to the `bin` folder. Refer to **Section 3.2 Dumping prod.keys (Full Encryption/Decryption Keys on Your Switch)** to see how you can dump the key.
+
+> Note: DO NOT USE any prod.keys you found circulating from the Internet. There's no risk there (need further confirmation) but why do that if you already hack your Switch and have full access?
+
+Once you put the `prod.keys` to `bin` folder, you can then click any of the `x to y` button
+
+> Note: Splitting NSP/XCI to FAT32 max file size limit (4GB) does not require `prod.keys`.
+
+
+# 5. Install Games
 Recall that Atmosphere cannot mount the XCI and won't detect them from Homebrew menu, so you have to use Installer to extract NSP to either your internal storage (Switch eMMC) or SD card. **Always choose SD card for the destination since the internal storage is supposed to only store files for your cleaned sysNAND and leave no trace of CFW!**
 
 There are three popular installer to choose from:
@@ -154,48 +241,55 @@ There are three popular installer to choose from:
 
 Before installing your package manager, create a folder called **[NSP]** in your root microSD card where you will put all the NSP container games. 
 
-> NOTE: You don't have to put all the NSP at the root microSD card unlike XCI mount in SXOS. So that should keep your root microSD card clean!
+> NOTE: You don't have to put all the NSP at the root microSD card unlike XCI mount in SXOS. Recall in SXOS you have to put all XCI games at the root microSD, otherwise the "Album" app would not detect the game. This is because the Title Installer will extract the NSP contents (which could have base, dlc, updates) into the emuMMC. So that should keep your root microSD card clean!
 
-## 4.1 Package Manager 
-### 4.1.1 Tinfoil
+## 5.1 Package Manager 
+### 5.1.1 Tinfoil
 I used **Tinfoil v12 NRO**, not NSP!
 
 Steps
-1. Download the latest tinfoil from Tinfoil homepage (https://tinfoil.io/Home/Bounce/?url=https%3A%2F%2Ftinfoil.media%2Frepo%2Ftinfoil.latest.zip)
-2. Copy the extracted folder to your microSD card. The `tinfoil` folder should be located in your `switch` folder.
-3. Launch Tinfoil from atmosphere. If this is the first time launching it, I suggest launching Homebrew menu by launching any title then hold the R button, from there select Tinfoil. After that the Tinfoil icon should appear at your home menu. The next time you can just click it to launch directly.
-4. Get familiarize with Tinfoil menu UI, then select File Browser > sdcard > NSP to see your NSP games!
+1. Open download.txt from `5-1-1 Tinfoil Package Manager`. 
+2. Paste the link to your browser and download it
+3. Extract to your root microSD card. The `switch` folder should appear at the top most level.
+4. Launch Tinfoil from atmosphere CFW. If this is the first time launching it, I suggest launching Homebrew menu by launching any title then hold the R button, from there select Tinfoil. After that the Tinfoil icon should appear at your home menu. The next time you can just click it to launch directly.
+5. Get familiarize with Tinfoil menu UI, then select File Browser > sdcard > NSP to see your NSP games!
 
 
-## 4.2 Transfer via PC (Optional)
-### 4.2.1 TinNUT
+## 5.2 Transfer via PC (Optional)
+### 5.2.1 TinNUT
 To simplify the transfer and not having to take out the microSD card from my Switch, I downloaded Tin NUT v2.7 (https://github.com/blawar/nut), which is a server program that you run on your PC. Once it is running, you can then launch Tinfoil, and select `File Browser -> usbfs:` to see all the drives on your PC! 
 
-1. Download `nut.exe`, `tinfoil.reg` and `tinfoil_driver.exe`
+1. Copy all the files from `5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil` to your PC
 2. Run `tinfoil_driver.exe` to install a modified USB driver to communicate with Switch when you plug in USB3 cable.
 3. Double click `tinfoil.reg` to extend the MTP transfer timeout. This will add entry to your Windows registry, I've checked the content and it is harmless.
-4. Run `nut.exe`, then paste the path on the top left field that contains all your NSP files!
+4. Run `nut.exe`, then paste the path on the top left field that contains all your NSP files! This will open a web server that you can access from Tinfoilon your switch.
 
 ![](https://i.imgur.com/zCkd2nW.png)
 
+Next, on your Switch,
+5. Launch Tinfoil homebrew app.
+6. Select [File Browser], then select `usbfs:`. You should see all your PC drives.
+7. Select a folder containing all the games, then press A to start transfer. The download progress bar will show on the top right.
 
 On my PC, each transfer is averaging 30-40MBps even when I am connected to USB 3.1 and using USB3 cable. I was expecting 80MBps but at least it works!
 
-### 4.2.2 NS-USBloader v5.0
+### 5.2.2 NS-USBloader v5.0
 I also tried out NS-USBloader v5.0 (require Java runtime) (https://github.com/developersu/ns-usbloader), but unfortunately it doesn't work on Tinfoil. Clicking the `Upload` button always failed. I didn't investigate further since TinNUT works out of the box.
 
 ![](https://i.imgur.com/wp82v1x.png)
 
 
-# 5. Post Install
-## 5.1 Transfer saves in emuNAND into sysNAND for legit game
+# 6. Post Install
+## 6.1 Transfer saves in emuNAND into sysNAND for legit game
+WIP
+Basically the gist is
+1. Full backup sysMMC before connecting Online for the first time
+2. Launch OFW on sysMMC (no trace of CFW ever) then connect to Internet
+3. Reboot and do another full backup of the sysMMC. This is because some additional files will be written to sysMMC when you connect for the first tiem, possibly some files downloaded from Nintendo server. You want to always restore from this full backup in the future, not the first one, whenever you want to launch a clean OFW with your history of Internet Connection. If you restore from the full backup in step 1, there will be mismatch for the record when Nintendo matches the data. No one knows how and what files Nintendo server is checking, since their implementation is close source.
+
+## 6.2 Update sysNAND to latest firmware for online play
 WIP
 
-## 5.2 Update sysNAND to latest firmware for online play
-WIP
-
-# 6. Issues
+# 7. Issues
 **Blank screen when trying to wake up from idle screen (sleep mode).**
-I had to force shutdown by long pressing the power button for more than 15 seconds to reboot.
-
-Might try to chainload atmosphere from Hekate since some user reported that it work. Will update later.
+No longer happening.
