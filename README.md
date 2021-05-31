@@ -72,13 +72,14 @@ First Commercial Company|TeamXcecutioner|Gateway|
 
 # My setup
 - NS Switch `Mariko` (a codename for NS switch sold with RED packaging box, with the longer battery life released after 2019), with soldered hardware mods SXOS Core chip.
+- Both my sysNAND and emuNAND was on firmare 10.0.2
 - 512GB microSD card
 - Backup sysNAND and emuNAND
 - Never connected online in both emuNAND and sysNAND
 - Only booted to sysNAND less than ten times to play my legit game. Again I never online in sysNAND or update the stock firmware.
 
 Note:
-- I don't have to force my NS Switch into recovery mode using TegraRCM nor connect any USB cable from my Switch to PC. This is only because I have the SXOS Core hardware mod soldered. You might have to do it if yours are not, e.g. you are using dongle from SXOS Pro or jig to boot into SXOS.
+- I don't have to force my NS Switch into recovery mode using TegraRCM nor connect any USB cable from my Switch to PC, I don't think Mariko (patched or v2) Switch support that anyways. This is only because I have the SXOS Core hardware mod soldered. You might have to do it if yours are not, e.g. you are using dongle from SXOS Pro or jig to boot into SXOS.
 
 # What You Will Have At the End of This Guide
 By the end of going through **Section 1 to 3** this you would have
@@ -293,3 +294,46 @@ WIP
 # 7. Issues
 **Blank screen when trying to wake up from idle screen (sleep mode).**
 No longer happening.
+
+# 8. FAQ (Technical)
+**Q: What is Fuse and should I care?**
+A fuse is a one time programmable (write) hardware registers. The **one-time only** function is exactly the same as the fuse you will find in ALL power adapter, extension cord (power strip) or Power Supply Unit (PSU) on your PC. The lead inside the fuse will be shorted or break once in the event of very high surge of voltage/current flowing through. In other words, the fuse is the last line of defense that protect the surged volage to go through and damage any connected electronics.
+
+The same logic applies here. Think of it as a storage somewhere in the powerful Tegra X1 SOC in Switch that store either '0' or '1'. Once that is written AKA blown/fused/burned, it will stay there permanently, hence the term **one-time**. However it can be read as many times as possible. It is very infeasible to modify the fused registers even for professional engineer.
+
+Nintendo store a table somewhere in the firmware that contains the **expected** number of fuses to be burnt for each firmware version. The detail can be found here https://gist.github.com/jonluca/0d7ce7da7c84de5163be0b49b3e319cc. Though it is slightly outdated and only covers until firmware 10.x.
+
+There are two scenarios on how the fuse is used:
+**Scenario 1: Power on**
+Assuming that you never hacked/mod your Switch and power it on, the stock (official Nintendo) bootloader will first read the number of fused burnt in the Tegra X1 SOC. If it doesn't match and **less than** the expected number of fuse for the booted firmware, it will burn the remaining fuses until the total matches the expected. Though this is highly unlikely since the fuses would have already been burnt when you did the firmware update and restart your Switch (read on Scenario 2).
+
+**Scenario 2: During Firmware Update**
+Say you are booting via stock bootloader and wanted to do a firmware update. Before the firmware update actually start, the system will again check whether the number of burnt fuses on your system matches the expected number of burnt fuses for that firmware. 
+
+**Case 1.** If the number of burnt fuses is **LESS** than the expected number of burnt fuses of the firmware, it will burnt all the fuses until it matches the firmware. For example, if you are on Firmware 8.1.0, by default your unit would already have 10 fuses burnt (For retail unit). If you are trying to update to Firmware 10.0.2, the system will automatically burnt all the remaining 3 fuses, and this brings the total of burnt fuses to 10+3 = 13. Then the firmware update process continues.
+
+**Case 2.** If the number of burnt fuses is **EQUAL** to the expected number of burnt fuses of the firmware, it will not burn any fuse and proceed with the firmware update. For example, if you are on firmware 10.0.2 and the number of burnt fuses is 13, it matches with the expected number for that firmware, i.e. 13. So it will not do anything.
+
+**Case 3.** If the number of burnt fuses is **GREATER** to the expected number of burnt fuses of the firmware, it will refuse to proceed. This would only happen if you are trying to **DOWNGRADE** the firmware. For example, you are on firmware 10.0.2 (current burnt fuses number is 13), and are trying to downgrade to firmware 8.1.0 (expected burnt fuses number is 10).
+
+---
+
+Bootloader such as Hekate will bypass the fuse check, which is why you could use homebrew app like Daydream to downgrade/upgrade your firmware anytime you want.
+
+There are only two ways that the fuse will be burnt when you boot up your Switch.
+
+1) Via the stock/unmodded (never hacked) Nintendo Switch
+2) Via the **Genuine Boot** option in SXOS Core.
+
+Now the golden question, should you care about the burnt fuse?
+You don't actually, **ONLY IF you DO NOT have plan to DOWNGRADE your system firmware on sysMMC.** Or for those OCD that wanted to keep their switch at their fresh retail state.
+
+
+I'm still waiting for clarification from veteran whether booting Stock OFW from Hekate with the following bootentry (on `hekate_ipl.ini`) will bypass the fuse check when I boot into stock. So far I haven't boot into stock using that entry since I update to Atmosphere.
+```
+[OFW Stock (sysMMC)]
+emummc_force_disable=1
+fss0=atmosphere/fusee-secondary.bin
+icon=bootloader/res/icon_switch.bmp
+stock=1
+```
