@@ -258,6 +258,8 @@ Steps
 
 ## 5.2 Transfer via PC (Optional)
 ### 5.2.1 TinNUT
+**Edit @ 2021-June-01: Since I chose to boot to Atmosphere via Hekate and NOT using `fusee-primary` as the payload, Tinfoil will just show blank screen when launching via Homebrew Menu (with or without Applet) are the same. Of course without Tinfoil TinNUT would not work. It seems like it will only launch if you boot using `fusee-primary`. So for now I will choose Awoo and then transfer games to it via NS-USBloader v5.0 (see 5.2.2 for details).**
+
 To simplify the transfer and not having to take out the microSD card from my Switch, I downloaded Tin NUT v2.7 (https://github.com/blawar/nut), which is a server program that you run on your PC. Once it is running, you can then launch Tinfoil, and select `File Browser -> usbfs:` to see all the drives on your PC! 
 
 1. Copy all the files from `5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil` to your PC
@@ -275,7 +277,9 @@ Next, on your Switch,
 On my PC, each transfer is averaging 30-40MBps even when I am connected to USB 3.1 and using USB3 cable. I was expecting 80MBps but at least it works!
 
 ### 5.2.2 NS-USBloader v5.0
-I also tried out NS-USBloader v5.0 (require Java runtime) (https://github.com/developersu/ns-usbloader), but unfortunately it doesn't work on Tinfoil. Clicking the `Upload` button always failed. I didn't investigate further since TinNUT works out of the box.
+I also tried out NS-USBloader v5.0 (require Java runtime) (https://github.com/developersu/ns-usbloader), and it works flawlessly! 
+
+You just have to select USB when launching `Awoo`, then launch `NS-USBloader`! I chose Awoo because Tinfoil failed to launch since I boot to Atmosphere via Hekate chainload, and not using `fusee-primary`.
 
 ![](https://i.imgur.com/wp82v1x.png)
 
@@ -294,6 +298,11 @@ WIP
 # 7. Issues
 **Blank screen when trying to wake up from idle screen (sleep mode).**
 No longer happening.
+
+**microSD card corrupted**
+Many had pointed the culprit to the exFAT file system on the microSD card. I once forgot to power the unit off and unplug the microSD card. When booting again, my games become corrupted. So I had to format to FAT32 and will stick to it from now on and see if the problem reoccur. Fortunately I don't have to recreate my emuNAND, instead I just have to reinstall those NSPs via Awoo + USB!
+
+**Lesson learnt: ALWAYS POWER YOUR SWITCH OFF BEFORE REMOVING THE MICROSD CARD!**
 
 # 8. FAQ (Technical)
 **Q: What is Fuse and should I care?**
