@@ -46,6 +46,7 @@ After updating to Atmosphere, the same problem persist!
 - `Chainload`: Loading payload by booting into Hekete bootloader first, i.e. you select `Payload` from `Hekete` menu option, instead of modifying the `payload.bin` file from your root microSD card.
 - `fusee primary`: Payload (bootloader) to boot into atmosphere. You can load this by modifying the SXOX `boot.ini` file or chainload from `Hekete`. 
 - `SX Gear`: Bootloader from SXOS developer Team Xecutor allowing us to boot into RCM mode directly to inject payload such as `Hekete` without having to use TegraRCM (jig to boot into recovery mode)
+- `autoRCM`: Also known as auto Recovery Mode. This is a `soft brick` that always corrupt both `boot0` and `boot1` partitions so that the Switch never boot into Stock bootloader, which instead booting into Hekate or Atmosphere via payload injection. This effectively bypass fuse check, and prevent the fuse from being blown by stock booloader when it check its current fuse blown against the expected fuse to be blown for the booting firmware. **This is important because in the event for total battery drainage of the unpatched Switch or corruption, the system will boot into stock bootloader upon battery charging.** For Mariko patched Switch user however, this method is not applicable as Nintendo patched it, hence the `patched` switch. It is very likely that Mariko user would have SXOS Core SX hardware mod, which always ensure that it never got the chance to boot into stock bootlader, and it will always boot into the payload, thereby making this method unnecessary.
 
 
 **Homebrew App**
@@ -58,6 +59,10 @@ After updating to Atmosphere, the same problem persist!
 - `NSP`: Container for games. Can hold the base, updates, and dlc. It has to be extracted and installe by title manager like Tinfoil. This is similar to the CIA format in 3DS, which you would then install using title manager like BigBlueMenu (BBB) 
 - `NSZ`: A compressed format for NSP. NSZ files are typically 400MB less than NSP. It require installation via Installation Package Manager such as `Tinfoil`, `Goldbrew`, or `allos`.
 - `XCI`: Container for games. May be distributed as `trimmed XCI` which strip off all the empty/unused blocks in the storage. For example, for a flash cartridge with 32GB storage, if the game is only using 8GB, then the `trimmed XCI` will remove the remaining unused 24GB, and the final file size would be 8GB. This container is least compatible and difficult to work with to inject any updates or dlc. Recommend to use NSP instead. `XCI` can only be mounted as-is in SXOS (not Atmosphere), without needing further installation from the Switch via Installer Manager. 
+
+**Other**
+- `Horizon OS`: Official Nintendo stock bootloader. Booting via this bootloader WILL always check for fuse count, and blow it to match the installed firmware. This is why unpatched Switch user need to make sure autoRCM is ON. 
+- autoRCM:
 
 ## Comparing with 3DS Scene
 
@@ -255,7 +260,6 @@ Steps
 4. Launch Tinfoil from atmosphere CFW. If this is the first time launching it, I suggest launching Homebrew menu by launching any title then hold the R button, from there select Tinfoil. After that the Tinfoil icon should appear at your home menu. The next time you can just click it to launch directly.
 5. Get familiarize with Tinfoil menu UI, then select File Browser > sdcard > NSP to see your NSP games!
 
-
 ## 5.2 Transfer via PC (Optional)
 ### 5.2.1 TinNUT
 **Edit @ 2021-June-01: Since I chose to boot to Atmosphere via Hekate and NOT using `fusee-primary` as the payload, Tinfoil will just show blank screen when launching via Homebrew Menu (with or without Applet) are the same. Of course without Tinfoil TinNUT would not work. It seems like it will only launch if you boot using `fusee-primary`. So for now I will choose Awoo and then transfer games to it via NS-USBloader v5.0 (see 5.2.2 for details).**
@@ -349,7 +353,7 @@ stock=1
 
 ---
 
-Q. What is `fusee-primary` and `fusee-secondary` in `atmosphere`?
+**Q. What is `fusee-primary` and `fusee-secondary` in `atmosphere`?**
 They are essentially payload that contains the bootloader code to boot into Atmosphere CFW.
 
 You use `fusee-primary` whenever you want to automatically boot into Atmosphere. If you are on SXOS like me, you would get `SX Gear` and put both `boot.dat` and `boot.ini` in the root microSD. Then modify `boot.ini` payload to `fusee-primary.bin`, or simply rename `fusee-primary.bin` to `payload.bin`.
@@ -377,4 +381,37 @@ fss0=atmosphere/fusee-secondary.bin
 icon=bootloader/res/icon_switch.bmp
 stock=1
 ```
+
+---
+
+**Q. Which package manager to use?**
+**Case 1:
+If you are using Atmosphere CFW:**
+
+Tinfoil and Awoo are among the most popular ones. Based on my experience, I was getting `Corrupted data is found` when installing one container format over another. 
+
+Following are my findings when installing different containers to Awoo via `NS-USBLoader`. The container are converted/merged using `SAK`. 
+
+
+| Package Installer | NSZ (Base Game) | NSZ (Update/DLC ONLY) | NSP (Base Game) | NSP (Merged) | XCI (Base Game) | XCI (Merged) |
+|-------------------|-----------------|-----------------------|-----------------|--------------|-----------------|--------------|
+| Awoo              | Corrupted       | OK                    | OK              | Corrupted    | *E1             | Corrupted    |
+| Tinfoil           |                 |                       |                 |              |                 |              |
+- **Merged** above means `Base` + `Update` and/or `DLC`
+- **E1**: `Partially installed contents can be removed ... OpenFileSystemWithId:124: Failed to open filesystem. Make sure your signature patches are up to date and set up properly. Error code: 0x00234c02`
+
+
+**IMPORTANT**: If you boot to atmosphere via Hekate (i.e. using `fusee-secondary` as the payload), error E1 **WILL** occur at the very early beginning when you try to install XCI game cartridge game dump via Awoo. The reason is it require different sigpatches (need clarification). It will install normally if you boot into atmosphere directly (i.e. using `fusee-primary` as the payload), since it has the right sigpatches that you previously installed.
+
+> **NOTE: From my experience, the BEST and SAFEST way to install games via `Awoo` is to always install the base game NSP first. Then install the updates/dlc separately (it doesn't matter which container format, and I've tried NSZ directly and it works), instead of merging them into one container using SAK.**
+
+**Case 2:
+If you are using SXOS CFW:**
+
+All XCI (base game only) and (base game + updates + dlc) can be mounted without problem on SXOS. However, some game that have a higher System Firmware requirement than the system current Firmware will prompt `Checking if software can be played...` and then asking to connect to the Internet. This is because using packaging installer like Tinfoil and Awoo will bypass the check. I never connected to the Internet so I am not sure whether connecting will help. Installing via Tinfoil might work too (not verified by me).
+
+
+
+
+
 
