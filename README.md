@@ -401,7 +401,7 @@ Following are my findings when installing different containers to Awoo via `NS-U
 - **E1**: `Partially installed contents can be removed ... OpenFileSystemWithId:124: Failed to open filesystem. Make sure your signature patches are up to date and set up properly. Error code: 0x00234c02`
 
 
-**IMPORTANT**: If you boot to atmosphere via Hekate (i.e. using `fusee-secondary` as the payload), error E1 **WILL** occur at the very early beginning when you try to install XCI game cartridge game dump via Awoo. The reason is it require different sigpatches (need clarification). It will install normally if you boot into atmosphere directly (i.e. using `fusee-primary` as the payload), since it has the right sigpatches that you previously installed.
+**IMPORTANT**: If you boot to atmosphere via Hekate (i.e. using `fusee-secondary` as the payload), make sure you use the sigpatches downloaded from here (https://gbatemp.net/threads/sigpatches-for-atmosphere-hekate-fss0-fusee-primary-fusee-secondary.571543/). Otherwise error E1 **WILL** occur at the very early beginning when you try to install XCI game cartridge game dump via Awoo. The reason is it require different sigpatches (need clarification). It will install normally if you boot into atmosphere directly (i.e. using `fusee-primary` as the payload), since it has the right sigpatches that you previously installed.
 
 > **NOTE: From my experience, the BEST and SAFEST way to install games via `Awoo` is to always install the base game NSP first. Then install the updates/dlc separately (it doesn't matter which container format, and I've tried NSZ directly and it works), instead of merging them into one container using SAK.**
 
