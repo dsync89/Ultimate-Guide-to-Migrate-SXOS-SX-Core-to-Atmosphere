@@ -316,18 +316,20 @@ The same logic applies here. Think of it as a storage somewhere in the powerful 
 
 Nintendo store a table somewhere in the firmware that contains the **expected** number of fuses to be burnt for each firmware version. The detail can be found here https://gist.github.com/jonluca/0d7ce7da7c84de5163be0b49b3e319cc. Though it is slightly outdated and only covers until firmware 10.x.
 
-There are two scenarios on how the fuse is used:
-**Scenario 1: Power on**
-Assuming that you never hacked/mod your Switch and power it on, the stock (official Nintendo) bootloader will first read the number of fused burnt in the Tegra X1 SOC. If it doesn't match and **less than** the expected number of fuse for the booted firmware, it will burn the remaining fuses until the total matches the expected. Though this is highly unlikely since the fuses would have already been burnt when you did the firmware update and restart your Switch (read on Scenario 2).
+The fuse is only checked or burn by the stock Nintendo bootloader when you power on the console. It will never be burn once bootloader booted into the OS, either OFW (Horizon OS) or CFW (Atmosphere).
 
-**Scenario 2: During Firmware Update**
-Say you are booting via stock bootloader and wanted to do a firmware update. Before the firmware update actually start, the system will again check whether the number of burnt fuses on your system matches the expected number of burnt fuses for that firmware. 
+**Power on**
+Assuming that you never hacked/mod your Switch and power it on, the stock (official Nintendo) bootloader will first read the number of fused burnt in the Tegra X1 SOC, then it will compare that number to the expected number of fuses to be burnt for the firmware to be loaded. There are **THREE** possible cases for the matching results:
 
-**Case 1.** If the number of burnt fuses is **LESS** than the expected number of burnt fuses of the firmware, it will burnt all the fuses until it matches the firmware. For example, if you are on Firmware 8.1.0, by default your unit would already have 10 fuses burnt (For retail unit). If you are trying to update to Firmware 10.0.2, the system will automatically burnt all the remaining 3 fuses, and this brings the total of burnt fuses to 10+3 = 13. Then the firmware update process continues.
+> NOTE: Booting via payload injection such as hekate or atmosphere `fusee-primary` will **ALWAYS DISABLE FUSE CHECK**.
 
-**Case 2.** If the number of burnt fuses is **EQUAL** to the expected number of burnt fuses of the firmware, it will not burn any fuse and proceed with the firmware update. For example, if you are on firmware 10.0.2 and the number of burnt fuses is 13, it matches with the expected number for that firmware, i.e. 13. So it will not do anything.
+**Case 1:** If the number of burnt fuses is **LESS THAN** the expected number of fuse for the booted firmware, it will burn the remaining fuses until the total matches the expected number of fuses to be burnt for that firmware version. For example, if you are on Firmware 8.1.0, by default your unit would already have 10 fuses burnt (For retail unit). If you are previously updating the OFW firmware to 10.0.2 and this is the reboot,  the system will automatically burnt all the remaining 3 fuses, and this brings the total of burnt fuses to 10+3 = 13. 
 
-**Case 3.** If the number of burnt fuses is **GREATER** to the expected number of burnt fuses of the firmware, it will refuse to proceed. This would only happen if you are trying to **DOWNGRADE** the firmware. For example, you are on firmware 10.0.2 (current burnt fuses number is 13), and are trying to downgrade to firmware 8.1.0 (expected burnt fuses number is 10).
+**!!! IMPORTANT IMPORTANT IMPORTANT!!! IF YOU DONT WANT TO EVER ACCEIDENTALLY BURNT THE FUSE, BE SURE TO INJECT PAYLOAD TO HEKATE OR ATMOSPHERE FUSEE-PRIMARY (AND ENABLE AUTORCM IF YOU ARE USING UNPATCHED V1 CONSOLE, TO PREVENT THE SYSTEM TO EVER BOOT INTO STOCK BOOTLOADER)**
+
+**Case 2:** If the number of burnt fuses is **EQUAL** to the expected number of burnt fuses of the booting firmware, it will not burn any fuse and proceed to boot. For example, if you are on firmware 10.0.2 and the number of burnt fuses is 13, it matches with the expected number for that firmware, i.e. 13. So it will not do anything.
+
+**Case 3.** If the number of burnt fuses is **GREATER** to the expected number of burnt fuses of the firmware, it will refuse to proceed. The only way to boot into the system is using Hekate payload or Atmosphere `fusee-primary` payload that automatically bypass the fuse check. This case would only happen if you are trying to **DOWNGRADE** the firmware by booting into sysMMC with CFW installed, since you have to use Daybreak homebrew to downgrade and you would not be able to boot into OFW Horizon OS. For example, you are on firmware 10.0.2 (current burnt fuses number is 13), and are trying to downgrade to firmware 8.1.0 (expected burnt fuses number is 10).
 
 ---
 
