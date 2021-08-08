@@ -1,5 +1,7 @@
 # Ultimate-Guide-to-Migrate-SXOS-SX-Core-to-Atmosphere
 
+# Latest support: Firmware 12.1.0
+
 # Migrate from SXOS 3.0.5 (SX Core hardware mod) to Atmosphere 0.19.3
 
 I had been away from SXOS scene for more than a year, and recently just got back to power on my Switch to play some of the recent titles in 2021. I have prior experience in jailbreaking Nintendo 3DS, the new Nintendo 3DS, Sony Playstation PSP Slim, Sony Playstation Vita (phat), and Sony Playstation Vita (Slim). While the tools used differ for each console, they do share some similarities and I find it easier to understand and compare the process. 
