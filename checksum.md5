@@ -1,0 +1,204 @@
+d41d8cd98f00b204e9800998ecf8427e *.gitignore
+b7037b6575ac10e0a6963e9e90194ba4 *README.md
+d41d8cd98f00b204e9800998ecf8427e *1-1 Meet Hekate, your friendly Bootloader\!! PUT YOUR SXOS license.dat and license-request.dat here too!.txt
+d41d8cd98f00b204e9800998ecf8427e *1-1 Meet Hekate, your friendly Bootloader\!! THIS IS YOUR MICROSD CARD ROOT.txt
+20cf385a492fb0058f39f183ed1ed104 *1-1 Meet Hekate, your friendly Bootloader\boot.dat
+3f345076feb5b7b71941d7f8979086af *1-1 Meet Hekate, your friendly Bootloader\boot.ini
+b9f432011ab4db2bed8a29eb2e07fb02 *1-1 Meet Hekate, your friendly Bootloader\payload-hekate-5.5.6.bin
+8c25ed51d133e0e11c998acc5e79c7e3 *1-1 Meet Hekate, your friendly Bootloader\bootloader\res\icon_payload.bmp
+a336749f763701ada9806eb889817c5b *1-1 Meet Hekate, your friendly Bootloader\bootloader\res\icon_switch.bmp
+dacf5c5498575050939797eaa350719d *1-1 Meet Hekate, your friendly Bootloader\bootloader\sys\emummc.kipm
+318f93fea14bd9dc87eb8a4a01758313 *1-1 Meet Hekate, your friendly Bootloader\bootloader\sys\libsys_lp0.bso
+40f64343f300499a87f7ca7f60efbcc8 *1-1 Meet Hekate, your friendly Bootloader\bootloader\sys\libsys_minerva.bso
+7584b70aea60842da225676b1643c851 *1-1 Meet Hekate, your friendly Bootloader\bootloader\sys\nyx.bin
+51f8b1ce7b749b49c0944255dd25af23 *1-1 Meet Hekate, your friendly Bootloader\bootloader\sys\res.pak
+d41d8cd98f00b204e9800998ecf8427e *1-3 Install Atmosphere to your microSD\!! PUT YOUR SXOS license.dat and license-request.dat here too!.txt
+d41d8cd98f00b204e9800998ecf8427e *1-3 Install Atmosphere to your microSD\!! THIS IS YOUR MICROSD CARD ROOT.txt
+8b09be080b33abd73b0552f8f76de340 *1-3 Install Atmosphere to your microSD\hbmenu.nro
+0c9552ff8a7bf133e44abcbe607532ed *1-3 Install Atmosphere to your microSD\atmosphere\hbl.nsp
+845da951c60f6957af73b7c0cd1620e2 *1-3 Install Atmosphere to your microSD\atmosphere\package3
+8148387a5bd9744e38dfd97f7aa7b2ba *1-3 Install Atmosphere to your microSD\atmosphere\reboot_payload.bin
+f30dc025597718b0b471562d243a6fa2 *1-3 Install Atmosphere to your microSD\atmosphere\stratosphere.romfs
+5727c83018fc9787dc33f620a00e71c9 *1-3 Install Atmosphere to your microSD\atmosphere\config_templates\exosphere.ini
+02c9cce94061748915a149c02aa46228 *1-3 Install Atmosphere to your microSD\atmosphere\config_templates\override_config.ini
+f5673bfe56b47eee1bd73bbc08d6f64c *1-3 Install Atmosphere to your microSD\atmosphere\config_templates\stratosphere.ini
+3d3c9f1ea3136e13b537e32cc8fe174b *1-3 Install Atmosphere to your microSD\atmosphere\config_templates\system_settings.ini
+543c06d4af73cf6682a258a29eccfd55 *1-3 Install Atmosphere to your microSD\atmosphere\hbl_html\accessible-urls\accessible-urls.txt
+bc0cebc8224989e527e78571cfdcca62 *1-3 Install Atmosphere to your microSD\switch\daybreak.nro
+46c1e9973038c72f9fd8fc161b01130a *1-3 Install Atmosphere to your microSD\switch\reboot_to_payload.nro
+d41d8cd98f00b204e9800998ecf8427e *2-1a Auto boot into Atmosphere, bypass Hekate\!! PUT YOUR SXOS license.dat and license-request.dat here too!.txt
+d41d8cd98f00b204e9800998ecf8427e *2-1a Auto boot into Atmosphere, bypass Hekate\!! THIS IS YOUR MICROSD CARD ROOT.txt
+20cf385a492fb0058f39f183ed1ed104 *2-1a Auto boot into Atmosphere, bypass Hekate\boot.dat
+d496a9cff7477ae976b8e3fc496deb70 *2-1a Auto boot into Atmosphere, bypass Hekate\boot.ini
+a188aa511c1d206efd128a1f90d78d32 *2-1a Auto boot into Atmosphere, bypass Hekate\payload-fusee-primary-atmos-0.19.5.bin
+d41d8cd98f00b204e9800998ecf8427e *2-1b Boot into Hekate first, then select boot mode\!! PUT YOUR SXOS license.dat and license-request.dat here too!.txt
+d41d8cd98f00b204e9800998ecf8427e *2-1b Boot into Hekate first, then select boot mode\!! THIS IS YOUR MICROSD CARD ROOT.txt
+20cf385a492fb0058f39f183ed1ed104 *2-1b Boot into Hekate first, then select boot mode\boot.dat
+e3db61194bdaa56a511b0a2173d76b9f *2-1b Boot into Hekate first, then select boot mode\boot.ini
+59be54af525de5141f600e69beb6ce9f *2-1b Boot into Hekate first, then select boot mode\payload_hekate_ctcaer_5.6.1.bin
+bdec6b2bfefe726a67b0084886a1a1ce *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\03E4EB5556B98B327D1353E8AA2C7ADF2C544470.ips
+5df02182e2bd2d3a9731b8c6e3462ebf *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\1114E9102F1EBCD1B0EAF19C927362CFCB8B5D2C.ips
+c05d3e40b83cd7d4ce3412af80d3073f *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\34E95FF2929B5B767DCFD41D108AD927D2D7F5DC.ips
+67929b98cacc3a5b292bad57db8dfb1a *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\39E7884F7DDEA9BE4FF9F7187898FACC466A080A.ips
+38d0da051e6ef7405e41e29f43c6c284 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\3B8BF56DBEC7225D2EE666B009C42C0DC4552010.ips
+b6aaa2e7fbf8be4e635cf7566aef3b9f *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\5AA09E1AF740A91D0F73ADFAE81A63E8AC0610D2.ips
+b10816cb3b1e466c46f4900c37044f92 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\7135C20E752183914606CCE81293F24B738C3AEF.ips
+20bcce8a8772f948f8ca2843db084e1e *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\76935CA6235CA150D790D4DDF09CA3488AEF50D8.ips
+12b533b67713fa9024c87daee53fa52d *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\98BB737D9780E9FE3117981A77A09FF6756DBC2E.ips
+68a6ad6354e825ab4bf86ec13b0ec4c6 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\9C1B205852731D054B070529D320AD9649E7796C.ips
+644c5e40e7e39003b0f178c6ff84c548 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\A6E7D98BD335371E1B9A96F6241EA3E83B0C36F4.ips
+644c5e40e7e39003b0f178c6ff84c548 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\C0BFC6518707AC975295A0B656A051DA885A9045.ips
+fa7e7ea922bb2d01a886cda48b45b5b3 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\CBF2D40A2210C4EE1137F80098DB776EAC7DDCC1.ips
+67929b98cacc3a5b292bad57db8dfb1a *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\CF8FB4F82D3E2D56720E1EDB14AB06543343E042.ips
+f8c0b2dcec1287cc632ca02cc580f4d0 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\D0ECC9483E636AE19FE3E314DB41CB18019977D7.ips
+b1f1ca79c3a8b972f3a5794c86b902f4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\D2D2430244D162C9FAABE8C89A58C6E3962160F1.ips
+fa7e7ea922bb2d01a886cda48b45b5b3 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\E581B1898637E5BC40DBC4AB8F0C6324447E05D1.ips
+8113b959c21382b36b7c5110c5e4b10f *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\F48ABC3EF41A0555800127D172C9B8D2C653243A.ips
+145247f5751142b0343a5453cc8e678e *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\F65FBA401BAC3CDDEA4917DE22E8B426B3A6C3AD.ips
+af6c0d98f72736ac65dce0be6ceb609a *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\F86D615F9FC6F0D16C3458BE58C64594DBDAB0DF.ips
+af6c0d98f72736ac65dce0be6ceb609a *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\es_patches\F92CFF283777465AFBCC6E160C10EFE7AADC4D3C.ips
+17eb8cd2d2c07fe5b80bc4dda52481a3 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\38774C42DFCB8B9D7AA61550D6AF7D335472556C.ips
+14245fdda2e2772e59dfdfa0f75dece3 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\3AED90979B380C6415F975F5B784BEA2B4730E8C.ips
+2e7c9fdce8bebbe5245a0673f2c59733 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\43F10952AE80CFADC39A0BF59EA4E552EF4A4528.ips
+c35dbadd86afbb3df0f29f925e39c1b5 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\5835E2DADB4DD570DD811ABF521FA91AC3C7B717.ips
+c1397def9b31f240cb93f4f9426a7c45 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\5DA461C7B6CAE6B88EDF4F914F7CBCF0943B10BB.ips
+153454895009dfe656a7614ce23a9ae9 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\69E25CDEEED5C6520AC2AC8E5EAE01CD8FC46E40.ips
+2c6b064ed6fb0275e23dcf8b8b473d8f *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\6F02D68B1DCD2AFFBAED14B5933F81F3C327E537.ips
+4b03adf17a48a818af7a6f360447333b *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\7A43F840337C28D453718843608EEFF78AFD460B.ips
+4e8b01f2f12e4d866402809a412477c3 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\7DF07326B6B50CA37F19C1C44F9458406C536B30.ips
+c35dbadd86afbb3df0f29f925e39c1b5 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\881206E6B5078EFC4E2C30D7B33E33AD266538C6.ips
+2c6b064ed6fb0275e23dcf8b8b473d8f *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\8CB532EA199207191F04CE3DDECEC854C7CF07D6.ips
+73c1d2cde9af7b8d1484af759f6a8f62 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\929014BFCFE462FD76B2BB3454FB304F63C73AC2.ips
+4e8b01f2f12e4d866402809a412477c3 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\9C72C47F0310F7C9F487047D8EB42DBB96882088.ips
+153454895009dfe656a7614ce23a9ae9 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\A85F50FBA10E06A3EBA3D3FACB9E075B218C7D6D.ips
+aab929dfb60041deb216cef7cb981fcc *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\AD32FB6D8F36668C586E538E32576A8D6A3931C0.ips
+4f254b5f4ba6dd68dafc487e7d0bcb12 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\B6966381A806655B718F1BF11DB5FF836E3085F7.ips
+483b825767641f6501a0eddaefff5fe9 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\D47D1506009B340829CD545B2A3F3AA7881FBADA.ips
+5111bb3d32c6a010988023c8eb0e5251 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\D82361E0D66DC01AFA3B5116532E5E1ED569C578.ips
+85d65fc4ffa37169b0fab267886d8877 *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\E6BFDADD5C69E17D43B7C67E2B2EE8B2E50C8E1F.ips
+312b5612d841c06f92935d72481a4aff *2-1b Boot into Hekate first, then select boot mode\atmosphere\exefs_patches\nfim_ctest\FD53CB863709DFFEC19C0889F61D4C424AFFD4ED.ips
+16caf47982f1fd3b522ab5f30a645476 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\02D5ABAAFD20C8B0633AA0DBAEE0377EF526CE6AD2AC6F2CAD7180CE69E74311.ips
+16caf47982f1fd3b522ab5f30a645476 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\06E90719595A010C6246FF70946F10FB367A00BBD8B7D8D1F25CCE0B458D7E89.ips
+2caf8bad86c4b5480cdf0ee3e9f44a0a *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\073099D7C6AD7D8983BC7ADD932BE3D1243193792E0920955DBC17F5794FDE28.ips
+fddff78ddae6f93c40a1c069a28892f4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\0BA15BB304B505633B6DA6B2C6E991B6A06EBAFB3378DF02BF6B494075976F06.ips
+aa1cb61d7b346b3a7c77c8e6649ea0a8 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\0D7005627B07767C0B963F9AFFDDE56628A27116CFC4D8B2AF42BDEEBF97205B.ips
+20b199f2ade331ec7bb1950b3fdcb8fe *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\10B2D81605488599DF2242CB6BAC2DF1E2BCAB3BC19DC5CD63DB6FAEC0947097.ips
+c997a511929f9c0c656ceb1532543faf *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\160D3E104EAD6176991B8AE7AFA2B78BC5879FC07BE88A4FC9E16812971BC161.ips
+f937fd751f0e4e10cf18738014c378f9 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\2ADBE97E9B5F41779EC95FFE2699C93305D6A69D465CF597D67465CD69BACCE8.ips
+5f19cd7626b2b508d8e1bbbbafd16e49 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\2CCE659CEC536A8E4D91F3BE4B74BED302613F1E442581FD863708E39112DB50.ips
+75044da981d38736f108a1d070b2c4f7 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\330553F6B5FB55C4C2D7B736240276B3EAD664DA79826FA936F99803B6C28F3B.ips
+aa513abcabe04c9921edfacfd5b1367c *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\3A574D436186191D1788EB2C0F076B11737132EBB1484CF906B6A8EB3B1BF459.ips
+9e34b73ea84346d8f2f9cf1a89a31259 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\3EEBD9B7BCD1B5E0BCC2007D6514F7A4845A1F42AAD795573FD2865DADE1C5E0.ips
+91ffa4d4abb86489d5ddc3ff5f79b68d *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\468740761E193EB758794688F1D9F762CBA1185ADDAD4EC3C479EC8FBFEC31DD.ips
+da1d9c2583f680a0b01997781cb9c6be *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\51EBFA9CCF66C09EC796C069C6C6D03C01D504CC0B17F4FAA919446E7E9DB107.ips
+16caf47982f1fd3b522ab5f30a645476 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\549B0F8D6F72C4E9F3FD1F19EACE4A5A1DA2D5C393F74224F8BC09DE4AAA4217.ips
+2caf8bad86c4b5480cdf0ee3e9f44a0a *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\57397C063F10B6313F4D837653CCC371BE2158BF6DD889326648D5C83D50CECF.ips
+337d9518fbda313e57211d2b95dc3e84 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\6B09B67B29C020246DC34F5A04F5D3090215C46F37BD079442977A85B8243BA5.ips
+da1d9c2583f680a0b01997781cb9c6be *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\763827EE9C207E5BA99AE5BDC872DFCFB69D8F1261D80A60F3AC25AC9C90C230.ips
+20b199f2ade331ec7bb1950b3fdcb8fe *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\76F87402C9387C0F0A2FAB1B45CEBB93E3E9695C7CFD390F00509B1204101C24.ips
+91ffa4d4abb86489d5ddc3ff5f79b68d *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\7C951376E5C12DF85FA6A9F46F6957A4B1271C1F8201B99735D8DF152E7913F1.ips
+da1d9c2583f680a0b01997781cb9c6be *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\7D200547178A836A24993B002AFD83D0B662AA7177E935C04C36EAC21BAC24AA.ips
+16caf47982f1fd3b522ab5f30a645476 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\8096AF7C6A35AA8271F3916995413B0B64CE03BD9BBFEB26F2B3E01C5427C69E.ips
+9e34b73ea84346d8f2f9cf1a89a31259 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\817EA2B0B702C1F37EC5E0A7A61F745440422037DAA3537CEF4E856C40273F78.ips
+da1d9c2583f680a0b01997781cb9c6be *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\91BA65A21C1D50AEF6E6B535B491A36CD1B2DFB2DA2F0AB4A93F03097BB894E0.ips
+c3a44cfc8a9bac21508acbc4dc417478 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\981C57E7F02F70F7BCDE753181D901A62A2452B04F5C5FB86500A2172CC44641.ips
+1342af9a39281159dc1142ccd6b21907 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\A6F27AD9AC7C73AD419B63B23E785A0CD7AA9DC1A63C57D10049423DE7B77E2C.ips
+c3a44cfc8a9bac21508acbc4dc417478 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\A86DA5E87EF1097B23DAB5B4DBBAEFE780310AE643D319D6A7A149B9688651A5.ips
+c997a511929f9c0c656ceb1532543faf *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\A952B657ADF9C2BA1434BA9B8B86F3317D20659A8AC8510D8ECF4CE1BD7593E2.ips
+8329812fdd1d72d690769e3c66b40015 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\B2F5176B3548364D079A29B141A23B06AFFF5A98055576D5F337A621C0233CE3.ips
+4fccb4e944e7ced9863e624bcafef8b4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\B4CAE1F24965D92ED24EBE9E97F609C363834471BF18CA375CB6A1DEB77755EA.ips
+cc8f6f7333313ca4cd54d094fab1c0d7 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\B5E7A64C6F5C4FE319C36FD7D642F75B0159771671F73082448ACE30BD6BAE89.ips
+29fec9fdb394dd1d269a3a25d78a2a46 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\C86762BE19A51FA0C737AE921A816846605A64739523B4894F847BBED59E31EA.ips
+8ec000c9ecda79e194c4c8f22b887794 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\CD7BBE18D6130B28F62F19FA7945535B6829EFE64EF4AAF0DF8DA19885FE4A9A.ips
+1342af9a39281159dc1142ccd6b21907 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\CE3ECBA2F2F062F575F8F360842B32B432340DD2C7590CDEFC03E51B844AE805.ips
+d2b56aae5b248941ffd536e568a781fc *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\D5A5BF36640C49EA1D6BC5826772EEDFC11FD8626146B388E5E59322719B6AF7.ips
+aa1cb61d7b346b3a7c77c8e6649ea0a8 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\DBD85FCACC193DA83051C664E6452D32FD4F7922E5E29A281695B578347F8161.ips
+4fccb4e944e7ced9863e624bcafef8b4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\DBD941C0C53C52CCF7202C84D8E0F78013A3684D8AB5D128096674A8F7755B3D.ips
+d2b56aae5b248941ffd536e568a781fc *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\DC2A084996BB3C010035FCF196F940597E0B8EBFF2AC701F34F9997CCB531CDE.ips
+4b612e858623ea93fea7f9518ff573c8 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\DE9FDDA4085DD5FE68DCB20B41095BB4010856AF280201552F38273B44CECD6F.ips
+29fec9fdb394dd1d269a3a25d78a2a46 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\E1E8D3D6A2FE0B102CC79F8310EEEF66E5D14BCA2ED73454455FD87C615EEDC0.ips
+fddff78ddae6f93c40a1c069a28892f4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\E399156E844EB0AA3CC5152979961C879F5E90696C1224A1BBE0FF1BCDBFD7DC.ips
+8ec000c9ecda79e194c4c8f22b887794 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\E76692DFAA0420E9FDD68E436316181814CBD72E915E153174332C6BEAA41FC3.ips
+cc8f6f7333313ca4cd54d094fab1c0d7 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\fs_patches\F196D144D04445B6E7497CB6405B7FC305B54F961024BF432575296E4D52BC99.ips
+f5594b9163d034b43dd7370babb31847 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\0CDAA07AA6662015EDC1EE168E04582C551A52BACAFA4E8A5D34B88BA6B7BB6C.ips
+0226113ef532d1aedac9643695208e8e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\0E41C033A98F85D2D746F918E6DB8C58B9F0B25B6A847F9271019D81B3AEC8C4.ips
+d0c139bee82b1030fb5f35902c6f41a7 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\0EAF7E159D3BE0969637FFEBD413399DFEE366E615A290418E56838122135EB9.ips
+aa4c8c17d7c79230fce7c9d793599ff5 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\0f3850b7ce489f6a8faee9ad301013f66c74e7c8f8d1b7038ab7fe8ba9d5ac24.ips
+fb1ba16cc69478f1a6895315b8d3a27e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\183CBD5BE392C1AECF14582AD25F755A4AB97A86213F0A8CE4E1C18DF5A79EE8.ips
+82e6d61d0632b514b42fe715910787b4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\20EFF0183DA095635F99E8978A90C27C7D3F42E6504DF328F42ACC280EB05D1B.ips
+eb9dd422b0bed71492533ea62c5e0015 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\21339e8812a1fbdd4b097d10b9bfbfbf921b65e187739382fbccccecd64d93e0.ips
+82e6d61d0632b514b42fe715910787b4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\24589247BF87BAD1C56EC1A5D85D2C1FC6A0B6B8485EBECF5F6E872DB0B1A6FE.ips
+eb9dd422b0bed71492533ea62c5e0015 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\299b246d5de84d97cbd0dc4be27789eb8bdf23d08a5af8d60220ae085dd3d9cc.ips
+c0dbc392078adea40db2a47be536b350 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\29CA1C792CF3AB6357929DF0627170FF8EA1CC057DBE2E5C58ADD8A442BD0CA8.ips
+a46194c6ca5ef60cb9b2f98c076c86ed *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\368B15946BBCFCC3230D8DED8C420B6DB7A06F9EAFC9E07A265F90426723EC4F.ips
+82e6d61d0632b514b42fe715910787b4 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\384286127A10E36F98D5BC1E3A8454DF112572ECC342A366957270362700E787.ips
+90d9263f417aacdbb6757e97ca31d4df *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\39C8A75B9C85222193B724EC5DFEE0C68DF07ED0ACBC7B4A0F241A5DF6CC4B99.ips
+0226113ef532d1aedac9643695208e8e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\3EF3ADCE3A853DB287C90B1AA00EC2BD30008CC3968FF0A78BFDCE7091D56C94.ips
+0226113ef532d1aedac9643695208e8e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\4CE5C4B154617D29796F5C231F707E6EE28C90608EFA7ABCCA5BE1F86A12E85B.ips
+3f4ed27290c21d5c2863de501fe97d10 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\4D9C6D6993BF5BF058843BE072C9819598865C79BF87674C63B6D248FA7A0BA4.ips
+0226113ef532d1aedac9643695208e8e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\5361CBE7071B08CC585D4ED5978302A16B65F6C021A8DE945BF06268535E209D.ips
+a46194c6ca5ef60cb9b2f98c076c86ed *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\55B9D4F35EB7C68589C35D8A5752B31F02664020BF29D4F185168B2C4D713F9D.ips
+307c7fe020f888aeadee31080ef43cd0 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\57F03DC120EE515C58482959AB4F76F2B5E56467A377D9576A8BDBE22E3CA2EA.ips
+04d424ae32818904218763d47534a0f9 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\58F3B8A5D17DA70DE3AE4F7F5D511DF68A40CD5BC25485FB3F2C33363CA43601.ips
+cb924e0cbbdc75ce3b46903f3ab8abae *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\6F6F028EBDCA8EAD0822CC4C8BC9B57D0946666C46CD78405827C23205631EC6.ips
+f5594b9163d034b43dd7370babb31847 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\72EC3AF6AFE4C27CC92608BE477A34CC8BB97F475AE6521353C40777DC3D3B40.ips
+fb1ba16cc69478f1a6895315b8d3a27e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\77034D19EC5EB64BE78089100C8A32C0E97D52EBD9073DBFDE33A1506AAA750A.ips
+aa4c8c17d7c79230fce7c9d793599ff5 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\81530982b7d79dbc8c8824c8f72a33edd8cfcf8e485a0d3bb000e1bddbffbfc3.ips
+9035f7f49918925e6dacbf3436101aeb *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\87d1baba23c9d81ee8b619ba9adafb628e4172a48c78026b71fc3c5695f4ec53.ips
+fb1ba16cc69478f1a6895315b8d3a27e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\8CA78EAD6C6029367AAC65728E18FD367678CC2E79B6BFC97A2369B0D62323E2.ips
+04d424ae32818904218763d47534a0f9 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\8F6B6EF18268D6ABC39B73442D8AF2E0D97199443C06280A7E6505E730D26651.ips
+29b18d625834a2835c669794d18de01e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\987521753F9B8CE98718E3C70FFEA1FDDFF58511A482F5387DE25FAD822C27C0.ips
+9035f7f49918925e6dacbf3436101aeb *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\a03d932ddbf3512dda9878ce24aa42c11383b66d055670949e4744533d477e80.ips
+0226113ef532d1aedac9643695208e8e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\A24D79351011C238D7349A3D7D6FAE64D06D3F363146FCAD7AFAB0CADF83F8FB.ips
+0226113ef532d1aedac9643695208e8e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\A30045E6E8AB52978D22AA951DEB2380B09F1A45037F423195E800ED8C8E2A94.ips
+0226113ef532d1aedac9643695208e8e *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\AD2E2A97AC706B9A02D5670C6E1B16BC915C4FB182A754E79B1A76628C1CEFE0.ips
+9035f7f49918925e6dacbf3436101aeb *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\ade50a0149785ca115743386b109b8ebb95ed512aca4a33437fac1a257d2f0ce.ips
+d0c139bee82b1030fb5f35902c6f41a7 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\CED1E857D8CBA3590C29B78B28DCD8CA64B6376D95673E9BA9A44CA775FEF7B6.ips
+663dc57ae48ef4d62ee23fb40b996abd *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\eac30efb8b99ad10cdda37e19b064c0434c061f47cba9f7a146f47e3edd64d9e.ips
+93b1a61f9a6551d49ffcc62500911aa8 *2-1b Boot into Hekate first, then select boot mode\atmosphere\kip_patches\loader_patches\fca59c745a07dd7b254281f6edd4aa4aa29ab3b57a33379cc697ec23c0ef4704.ips
+f88eabbe62a65b0d80a607a4be77f0cc *2-1b Boot into Hekate first, then select boot mode\bootloader\hekate_ipl.ini
+ef76b1149caccd4adea73ddd14525ecc *2-1b Boot into Hekate first, then select boot mode\bootloader\patches.ini
+59be54af525de5141f600e69beb6ce9f *2-1b Boot into Hekate first, then select boot mode\bootloader\update.bin
+8c25ed51d133e0e11c998acc5e79c7e3 *2-1b Boot into Hekate first, then select boot mode\bootloader\res\icon_payload.bmp
+a336749f763701ada9806eb889817c5b *2-1b Boot into Hekate first, then select boot mode\bootloader\res\icon_switch.bmp
+32298a216e4a3c4b5187ac9f3f4d7475 *2-1b Boot into Hekate first, then select boot mode\bootloader\sys\emummc.kipm
+318f93fea14bd9dc87eb8a4a01758313 *2-1b Boot into Hekate first, then select boot mode\bootloader\sys\libsys_lp0.bso
+6f36d3107b0efd56cee19b69b8bfafd9 *2-1b Boot into Hekate first, then select boot mode\bootloader\sys\libsys_minerva.bso
+8fd0e0309d405b5b4e79de32fc168319 *2-1b Boot into Hekate first, then select boot mode\bootloader\sys\nyx.bin
+51f8b1ce7b749b49c0944255dd25af23 *2-1b Boot into Hekate first, then select boot mode\bootloader\sys\res.pak
+ca100bbaa4abcd77aeaf4dbce1eabd63 *2-1b Boot into Hekate first, then select boot mode\bootloader\sys\thk.bin
+d41d8cd98f00b204e9800998ecf8427e *3-1 Blank prodinfo (prevent ban) using exosphere (if you use CFW on emuMMC)\!! PUT YOUR SXOS license.dat and license-request.dat here too!.txt
+d41d8cd98f00b204e9800998ecf8427e *3-1 Blank prodinfo (prevent ban) using exosphere (if you use CFW on emuMMC)\!! THIS IS YOUR MICROSD CARD ROOT.txt
+eea7570611cbf7be1303690e96ce7936 *3-1 Blank prodinfo (prevent ban) using exosphere (if you use CFW on emuMMC)\exosphere.ini
+43b2c7c3c23a56b2765dcc128ed466f2 *3-1 Blank prodinfo (prevent ban) using exosphere (if you use CFW on emuMMC)\atmosphere\hosts\default.txt
+d41d8cd98f00b204e9800998ecf8427e *3-2 Dumping prod.keys (Full Encryption Decryption Keys on Your Switch)\!! PUT YOUR SXOS license.dat and license-request.dat here too!.txt
+d41d8cd98f00b204e9800998ecf8427e *3-2 Dumping prod.keys (Full Encryption Decryption Keys on Your Switch)\!! THIS IS YOUR MICROSD CARD ROOT.txt
+4614c4693059195d949af14bcca19a4d *3-2 Dumping prod.keys (Full Encryption Decryption Keys on Your Switch)\bootloader\payloads\Lockpick_RCM.bin
+3c21e7eacc8d5e056fefdb4bfa652622 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\liesmich_readme.txt
+9aa9c7a2d6252db8f34fc551db65eb5f *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\SAK.exe
+d41d8cd98f00b204e9800998ecf8427e *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\!! PUT YOUR prod.keys DUMPED FROM LOCKPICKER_RCM HERE.txt
+74e6df1a6aea6a959f6272ab41b44091 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\4nxci.exe
+39bc861d69bd81ac4733112b155fbf49 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\4nxci_LICENSE
+ccdd7687070069b168a7acb05e0ddfd6 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\guiformat.exe
+d7b7863deb239217f17684623ca3ac78 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\hacbrewpack.exe
+ffa10f40b98be2c2bc9608f56827ed23 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\hacbrewpack_LICENSE
+e87d6333b3d7f13f0cb8b384873f4b85 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\hactool.exe
+672a2c3b33c5391042d8132a19808d8c *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\hactoolnet.exe
+f18c9613eabe47d2bf6722c7faf5449e *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\hptnacp.exe
+149f3cae3e93033cd4365465652e8708 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\nro_fw_main
+354a406f291a7d2f2ebd47c361187b0f *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\nro_fw_main.npdm
+e400d3b5ded2d6a110e6bda4e374abdd *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\nro_fw_NintendoLogo.png
+617450c83f1f39a0ca3f9f3f3833e738 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\nro_fw_StartupMovie.gif
+cd05582a083510e504fabb6344a2862f *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\renxpack.exe
+c4bdd90a3cdf6a8edfada7f083bec044 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\renxpack_LICENSE
+3166f87aff72e529093a44b9cfb14146 *4-1 Switch Army Knife (SAK)\SAK_v0.7.11_64bit_20210515-17-57-04\SAK_64bit\bin\squirrel.exe
+d41d8cd98f00b204e9800998ecf8427e *5-1-1 Tinfoil Package Manager\!! PUT YOUR SXOS license.dat and license-request.dat here too!.txt
+d41d8cd98f00b204e9800998ecf8427e *5-1-1 Tinfoil Package Manager\!! THIS IS YOUR MICROSD CARD ROOT.txt
+af1145ad33f9ddecbac8b67cb653c9ac *5-1-1 Tinfoil Package Manager\download.txt
+d41d8cd98f00b204e9800998ecf8427e *5-1-1 Tinfoil Package Manager\switch\tinfoil\!! ALL FILES WOULD APPEAR HERE.txt
+d22348262fbb531663861ae3942e29c3 *5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil\Tinfoil NUT 2.7\nut.exe
+032634c7143d8450650e95efbf5741c7 *5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil\Tinfoil NUT 2.7\tinfoil.reg
+c6a3790a4064f7fd6663ec0f3f25158b *5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil\Tinfoil NUT 2.7\tinfoil_driver.exe
+6eed2185afdf8b04525562f5e12d2329 *5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil\Tinfoil NUT 2.7\conf\nut.conf
+1ddbb2e65eb96d95eb50e799adc3d56f *5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil\Tinfoil NUT 2.7\conf\users.conf
+5173320ae10704cfd67411058f565b5d *5-2-2 TinNUT (Server for Transferring Games from PC to Switch) to Tinfoil\Tinfoil NUT 2.7\titledb\files.json
